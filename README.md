@@ -3,7 +3,7 @@
 A retailer offers a rewards program to its customers, which is based on points earned for every purchase.
 
 A customer would receive,
-  -Two points for every dollar spent over $100 in each transaction
+  - Two points for every dollar spent over $100 in each transaction
   - One point for every dollar spent over $50 in each transaction 
 
 For example: In $120 purchase, points earned would be calculated as:
