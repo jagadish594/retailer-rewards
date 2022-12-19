@@ -7,9 +7,19 @@ import Config from "../../configs/config.json";
 function TransactionList() {
   const [transactionData, setTransactionData] = useState([]);
   useEffect(() => {
-    getTransactions()
-      .then((response) => response.json())
-      .then((data) => setTransactionData(data));
+    async function fetchTransactionData() {
+      try {
+        const response = await getTransactions();
+        if (!response.ok) {
+          throw new Error(`HTTP error: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error(`Could not get transaction data: ${error}`);
+      }
+    }
+    fetchTransactionData().then((data) => setTransactionData(data));
   }, []);
 
   const { transactionId, date, time, customerId, amountUsd, pointsEarned } =

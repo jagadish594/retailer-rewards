@@ -11,10 +11,6 @@ function CustomerByMonth() {
   const [monthToFilter, setMonthToFilter] = useState("");
 
   useEffect(() => {
-    // getCustomers()
-    //   .then((response) => response.json())
-    //   .then((data) => setCustomersData(data));
-
     async function fetchCustomerData() {
       try {
         const response = await getCustomers();
